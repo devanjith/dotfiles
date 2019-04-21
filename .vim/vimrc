@@ -1,0 +1,90 @@
+"configure plugins
+filetype off
+set rtp+=~/.vim/bundle/Vundle.vim/
+call vundle#begin()
+    Plugin 'VundleVim/Vundle.vim'
+    Plugin 'altercation/vim-colors-solarized'
+    Plugin 'scrooloose/nerdtree'
+    Plugin 'scrooloose/nerdcommenter'
+    Plugin 'jiangmiao/auto-pairs'
+    Plugin 'tomasr/molokai'
+    Plugin 'bling/vim-airline'
+    Plugin 'junegunn/fzf.vim'
+    Plugin 'ervandew/supertab'
+    Plugin 'junegunn/limelight.vim'
+    Plugin 'junegunn/goyo.vim'
+    "Plugin 'udalov/kotlin-vim'
+    "Plugin 'prettier/vim-prettier'
+    "Plugin 'pangloss/vim-javascript'
+    "Plugin 'elzr/vim-json'
+    "Plugin 'mxw/vim-jsx'
+    Plugin 'mattn/emmet-vim'
+call vundle#end()
+filetype plugin indent on
+
+"general settings
+set nocompatible
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
+set expandtab
+set autoindent
+set number
+set cursorline
+set clipboard=unnamedplus "use system clipboard
+set hlsearch
+set ignorecase
+set autochdir
+set background=dark
+set viminfo=""
+
+syntax enable
+colorscheme molokai
+
+" NERDTree
+let NERDTreeBookmarksFile=expand("$HOME/.vim/NERDTreeBookmarks")
+
+" emmet completion
+"let g:user_emmet_leader_key=','
+
+" prettier
+let g:prettier#config#semi = 'true'
+let g:prettier#config#tab_width = 4
+
+
+"goyo+limelight
+autocmd! User GoyoEnter Limelight | set spell
+autocmd! User GoyoLeave Limelight!
+
+"set guifont
+if has("gui_running")
+    set guifont=Monaco\ 10
+    set guioptions=ak
+    colorscheme molokai
+endif
+
+"skeletons
+func! Algo()    "competitive programming
+    0read ~/.vim/templates/algo.cpp
+endfu
+com! AL call Algo()
+
+func! Usaco()   "usaco training
+    0read ~/.vim/templates/usaco.cpp
+    3read !printf "PROG: %:t:r"
+    9read !printf "\#define PROG \"%:t:r\""
+    cd %:p:h
+endfu
+com! US call Usaco()
+
+"pretty list
+func! PrettyList()
+    setlocal lcs=tab:>-,trail:-,eol:$ list! list?
+endfu
+com! LI call PrettyList()
+
+":nohlsearch on <RETURN>
+nnoremap <CR> :nohlsearch<CR><CR>
+
+"map <Esc> to jk
+inoremap jk <Esc>
