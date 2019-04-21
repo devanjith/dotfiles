@@ -1,0 +1,9 @@
+#!/bin/bash
+#suspend system
+set -e
+
+if [ $# -eq 1 ] && [ "$1" == "-l" ]; then
+    systemctl suspend && physlock
+else
+    systemctl suspend
+fi

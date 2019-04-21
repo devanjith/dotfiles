@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+# my eyes love this.
+# depends: redshift
+
+set -e
+
+nightmode=true
+[[ $# == 1 ]] && [[ $1 == '-r' ]] && nightmode=false # reset
+
+if [[ $nightmode == true ]]; then       ##  into the abyss
+    xbacklight -set 1%                  # lower backlight
+    redshift -O 3300 -g 1:1:0.1         # redshift <3
+else                                    ## back to the future
+    redshift -x                         # bb redshift
+fi
+
+exit 0 # gg wp bb

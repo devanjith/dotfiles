@@ -1,0 +1,30 @@
+#!/usr/bin/env bash
+# alias for compiling for competitive programming
+set -e
+
+run=false                    # execute after compiling
+flags="-std=c++11 -g3 -Wall" # compiler flags
+output=                      # output file
+src=                         # source file
+
+#option parsing
+while getopts ":ro:O" opt; do
+    case "$opt" in
+        r) run=true ;;              # run after compiling
+        o) output="$OPTARG" ;;      # output
+        O) flags="$flags -O2" ;;    # optimize
+        ?) exit 64 ;;               # unknown option
+    esac
+done
+shift $((OPTIND-1)) # shift arg index
+
+src="$1"
+[[ "$src" == "${src%.*}" ]] && src="$src.cpp"   # no extension given, assume cpp
+[[ -z "$output" ]] && output="${src%.*}"        # set output file if previously unset
+
+clear
+g++ $flags -o "$output" "$src"      # compile
+printf "compiled\n\n"
+[[ $run == true ]] && ./"$output"   # run if $run is set
+
+exit 0  # gg wp bb

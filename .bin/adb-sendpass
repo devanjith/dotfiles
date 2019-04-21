@@ -1,0 +1,10 @@
+#!/bin/bash
+# input passwords on android
+set -e
+
+[[ $# -ne 1 ]] && exit 64           # invalid number of arguments.
+password="$(pass "$1" | \
+	head -n1 | \
+	sed 's/./\\&/g')"               # retrieve and escape; send only the first line.
+adb shell input text "$password"    # input on android.
+exit 0
