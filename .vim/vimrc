@@ -37,6 +37,7 @@ set ignorecase
 set autochdir
 set background=dark
 set viminfo=""
+set colorcolumn=79
 
 syntax enable
 colorscheme molokai
