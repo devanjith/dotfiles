@@ -1,0 +1,26 @@
+env:
+  TERM: alacritty
+
+window:
+  padding:
+    x: 10
+    y: 10
+
+  decorations: full
+  startup_mode: Maximized
+
+scrolling:
+  history: 10000
+  multiplier: 3
+
+font:
+  normal:
+    family: Monaco
+    style: Regular
+
+  size: 9.5
+
+draw_bold_text_with_bright_colors: false
+background_opacity: 1.0
+dynamic_title: true
+live_config_reload: true
