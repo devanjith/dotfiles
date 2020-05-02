@@ -4,7 +4,6 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'ryanoasis/vim-devicons'
 Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
-Plug 'junegunn/rainbow_parentheses.vim'
 Plug 'tomasr/molokai'
 Plug 'norcalli/nvim-colorizer.lua'
 
@@ -20,6 +19,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'heavenshell/vim-pydocstring'
 Plug 'vim-scripts/loremipsum'
+Plug 'prettier/vim-prettier'
+Plug 'mattn/emmet-vim'
 
 call plug#end()
 
@@ -74,6 +75,8 @@ inoremap jk <Esc>
 " HTML
 autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
 autocmd FileType css setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType typescript setlocal shiftwidth=2 tabstop=2 softtabstop=2
+autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " Markdown
 autocmd FileType markdown setlocal shiftwidth=2 tabstop=2 softtabstop=2
