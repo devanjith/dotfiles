@@ -19,7 +19,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'sheerun/vim-polyglot'
 Plug 'heavenshell/vim-pydocstring'
 Plug 'vim-scripts/loremipsum'
-Plug 'prettier/vim-prettier'
+Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 Plug 'mattn/emmet-vim'
 
 call plug#end()
@@ -46,7 +46,7 @@ set colorcolumn=79
 set cursorline
 set viminfo=""
 set clipboard=unnamedplus
-set autochdir
+"set autochdir
 
 let mapleader=","
 
