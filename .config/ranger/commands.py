@@ -15,7 +15,7 @@ class fzf(Command):
         fzf = self.fm.execute_command(command, stdout=PIPE)
         stdout, stderr = fzf.communicate()
         target = os.path.abspath(stdout.decode("utf-8").rstrip("\n"))
-        
+
         if fzf.returncode == 0:
             if os.path.isdir(target):
                 self.fm.cd(target)

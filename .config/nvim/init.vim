@@ -22,6 +22,10 @@ Plug 'vim-scripts/loremipsum'
 Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 Plug 'mattn/emmet-vim'
 
+"Potato PC can't run these two.
+"Plug 'mhartington/nvim-typescript', { 'do': './install.sh' }
+"Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+
 call plug#end()
 
 syntax on
@@ -46,15 +50,19 @@ set colorcolumn=79
 set cursorline
 set viminfo=""
 set clipboard=unnamedplus
-"set autochdir
+set autochdir
+set autoread
 
-let mapleader=","
+"let mapleader=","
 
 "NerdTree
 let g:NERDTreeDirArrowExpandable = '↠'
 let g:NERDTreeDirArrowCollapsible = '↡'
 
-" Airline
+"Deoplete
+"let g:deoplete#enable_at_startup = 1
+
+"Airline
 let g:airline_powerline_fonts = 1
 
 "goyo+limelight
@@ -64,6 +72,10 @@ autocmd! User GoyoLeave Limelight!
 "colorizer
 lua require 'colorizer'.setup()
 
+"emmet
+let g:user_emmet_leader_key = ','
+
+
 ":nohlsearch on <RETURN>
 nnoremap <CR> :nohlsearch<CR><CR>
 
@@ -72,11 +84,8 @@ inoremap jk <Esc>
 
 """ Filetype-Specific Configurations
 
-" HTML
-autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=2
-autocmd FileType css setlocal shiftwidth=2 tabstop=2 softtabstop=2
-autocmd FileType typescript setlocal shiftwidth=2 tabstop=2 softtabstop=2
-autocmd FileType javascript setlocal shiftwidth=2 tabstop=2 softtabstop=2
+"Web dev
+autocmd FileType html,css,*script*,json setlocal shiftwidth=2 tabstop=2 softtabstop=2
 
 " Markdown
 autocmd FileType markdown setlocal shiftwidth=2 tabstop=2 softtabstop=2
