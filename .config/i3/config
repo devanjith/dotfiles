@@ -189,7 +189,9 @@ bindsym $alt+b exec firefox
 bindsym $alt+e exec alacritty --command=ranger
 
 #nvim
-bindsym $alt+v exec alacritty --command=nvim
+#bindsym $alt+v exec alacritty --command=nvim
+#Now we're using nvim-qt
+bindsym $alt+v exec nvim-qt
 
 # gvim
 bindsym $alt+g exec gvim
@@ -198,10 +200,10 @@ bindsym $alt+g exec gvim
 bindsym Ctrl+$alt+l exec i3lock -uti ~/Pictures/Wallpapers/lockscreen
 
 # rotate screen
-bindsym Ctrl+$alt+Up exec xrandr --output eDP1 --rotate normal
-bindsym Ctrl+$alt+Down exec xrandr --output eDP1 --rotate inverted
-bindsym Ctrl+$alt+Left exec xrandr --output eDP1 --rotate left
-bindsym Ctrl+$alt+Right exec xrandr --output eDP1 --rotate right
+bindsym Ctrl+$alt+Up exec xrandr --output HDMI1 --rotate normal
+bindsym Ctrl+$alt+Down exec xrandr --output HDMI1 --rotate inverted
+bindsym Ctrl+$alt+Left exec xrandr --output HDMI1 --rotate left
+bindsym Ctrl+$alt+Right exec xrandr --output HDMI1 --rotate right
 
 # shutdown
 bindsym Ctrl+$alt+s exec shutdown -P now
