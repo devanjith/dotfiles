@@ -157,7 +157,7 @@ bindsym $mod+r mode "resize"
 # finds out, if available)
 bar {
     status_command i3status
-	position top
+    position bottom
     colors {
         background #212121
         statusline #fafafa
@@ -178,12 +178,14 @@ bindsym XF86AudioMute exec amixer -q sset Master toggle
 exec --no-startup-id feh --no-fehbg --bg-fill ~/Pictures/Wallpapers/current
 
 # screenshot
-#bindsym Print exec scrot -e 'mv $f ~/Pictures/Screenshots/'
 bindsym Print exec maim ~/Pictures/Screenshots/$(date +%F-%T).png
-bindsym Shift+Print exec maim -s ~/Pictures/Screenshots/$(date +%F-%T).png
-bindsym Ctrl+Print exec maim -s | xclip -selection clipboard -t image/png
+bindsym Shift+Print exec maim -s | xclip -selection clipboard -t image/png
+bindsym Ctrl+Print exec maim -s ~/Pictures/Screenshots/$(date +%F-%T).png
+
 # firefox
-bindsym $alt+b exec firefox
+#bindsym $alt+b exec firefox
+#we use chromium now
+bindsym $alt+b exec chromium
 
 # ranger
 bindsym $alt+e exec alacritty --command=ranger
