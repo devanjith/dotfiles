@@ -208,8 +208,10 @@ bindsym Ctrl+$alt+Left exec xrandr --output HDMI1 --rotate left
 bindsym Ctrl+$alt+Right exec xrandr --output HDMI1 --rotate right
 
 # shutdown
-bindsym Ctrl+$alt+s exec shutdown -P now
+# I'm tired of accidentally triggering this.
+#bindsym Ctrl+$alt+s exec shutdown -P now
 
 
 #Window specific properties.
 for_window [instance="pp2.*"] floating enable
+for_window [instance="app.*"] floating enable
