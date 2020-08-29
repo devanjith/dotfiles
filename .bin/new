@@ -1,0 +1,44 @@
+#!/usr/bin/env bash
+#create a new project
+set -e
+
+git_remote=""
+git_branch="master"
+gitignore="python"
+gitignore_api="https://www.toptal.com/developers/gitignore/api"
+
+while getopts "r:b:i:" opt; do
+    case $opt in
+        r)
+            git_remote="$OPTARG"
+            ;;
+        b)
+            git_branch="$OPTARG"
+            ;;
+        i)
+            gitignore="$OPTARG"
+            ;;
+    esac
+done
+shift $((OPTIND-1))
+
+[[ -z $1 ]] && echo "No project specified." && exit 1
+
+directory="$(date +%s)-$1"
+mkdir "$directory"
+cd "$directory"
+mkdir app docs prod
+
+curl -so .gitignore "$gitignore_api/$gitignore"
+
+git init -qb "$git_branch"
+git add .
+git commit -qam "initial commit"
+git remote add origin "$git_remote/$directory.git"
+git push -qu origin "$git_branch"
+
+echo
+echo
+echo "Project $directory created successfully."
+echo -n ".gitignore: "
+head -n5 .gitignore | tail -1
