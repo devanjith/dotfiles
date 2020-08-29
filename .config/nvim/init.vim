@@ -6,6 +6,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/limelight.vim'
 Plug 'tomasr/molokai'
 Plug 'norcalli/nvim-colorizer.lua'
+Plug 'StanAngeloff/php.vim'
 
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-sensible'
