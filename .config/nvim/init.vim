@@ -18,7 +18,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 Plug 'sheerun/vim-polyglot'
-Plug 'heavenshell/vim-pydocstring'
 Plug 'vim-scripts/loremipsum'
 Plug 'prettier/vim-prettier', { 'do': 'npm install' }
 Plug 'mattn/emmet-vim'
@@ -53,6 +52,9 @@ set viminfo=""
 set clipboard=unnamedplus
 set autochdir
 set autoread
+
+set splitbelow
+set splitright
 
 "let mapleader=","
 
@@ -90,4 +92,10 @@ autocmd FileType html,css,*script*,json setlocal shiftwidth=2 tabstop=2 softtabs
 
 " Markdown
 autocmd FileType markdown setlocal shiftwidth=2 tabstop=2 softtabstop=2
+
+" Move between splits
+nnoremap <C-J> <C-W><C-J>
+nnoremap <C-K> <C-W><C-K>
+nnoremap <C-L> <C-W><C-L>
+nnoremap <C-H> <C-W><C-H>
 
